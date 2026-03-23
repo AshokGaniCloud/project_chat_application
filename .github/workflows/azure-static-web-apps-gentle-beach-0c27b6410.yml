@@ -31,6 +31,8 @@ jobs:
            script: |
                const coredemo = require('@actions/core')
                return await coredemo.getIDToken()
+               npm ci
+               npm exec react-scripts build
            result-encoding: string
       - name: Build And Deploy
         id: builddeploy
