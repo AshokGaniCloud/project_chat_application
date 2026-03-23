@@ -31,8 +31,7 @@ jobs:
            script: |
                const coredemo = require('@actions/core')
                return await coredemo.getIDToken()
-               npm ci
-               npm exec react-scripts build
+              
            result-encoding: string
       - name: Build And Deploy
         id: builddeploy
@@ -44,6 +43,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "./client" # App source code path
           api_location: "" # Api source code path - optional
+          app_build_command:  npm exec react-scripts build
           output_location: "build" # Built app content directory - optional
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
